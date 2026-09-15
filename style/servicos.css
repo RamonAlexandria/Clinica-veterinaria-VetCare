@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* ===================================
+   CONTAINER PRINCIPAL
+   =================================== */
+.main-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   SEÇÃO NOSSOS SERVIÇOS
+   =================================== */
+.services-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px clamp(20px, 5.5vw, 80px); /* Mesmas margens do Figma da Index */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.services-title {
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.services-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 32px;
+}
+
+/* Lista em Grid idêntica à Index */
+.services-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 110px; /* Distância exata entre os cards idêntica à Index */
+}
+
+/* Card Padronizado (Dimensões do Figma: 353px x 389px) */
+.service-card {
+  background-color: #F9FAFB;
+  border: 2px solid #E5E5E5;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  min-height: 389px;
+  
+  /* Transição suave para o efeito hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card-title {
+  width: 100%;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.service-card-desc {
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4a4a4a;
+  line-height: 1.35;
+  margin-bottom: 16px;
+  min-height: 38px;
+  text-align: left;
+}
+
+.service-card-image {
+  width: 100%;
+  height: 160px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 0 20px 0;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* --- EFEITO HOVER NOS CARDS --- */
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #08784b;
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.06);
+}
+
+/* Botão Verde Padronizado com a Index */
+.btn-card {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 48px;
+  background-color: #08784b; /* Atualizado para a mesma cor da Index */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-weight: 600;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btn-card:hover {
+  background-color: #065b38; /* Atualizado para o mesmo hover da Index */
+}
+
+/* ===================================
+   RESPONSIVIDADE DOS CARDS
+   =================================== */
+
+@media (max-width: 1200px) {
+  .services-list {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card-desc {
+    min-height: auto;
+  }
+}
+
+/* ===================================
+   SEÇÕES DE DESTAQUE (SEM DIVS)
+   =================================== */
+
+.destaque-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto 60px auto;
+  padding: 0 clamp(20px, 5.5vw, 80px);
+  display: flex;
+  box-sizing: border-box;
+}
+
+.destaque-card {
+  width: 100%;
+  background-color: #111a28;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.destaque-image {
+  flex: 1;
+  margin: 0;
+}
+
+.destaque-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.destaque-content {
+  flex: 1;
+  padding: 40px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.destaque-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.destaque-subtitulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.destaque-content p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+/* Responsividade para os destaques */
+@media (max-width: 1024px) {
+  .destaque-card {
+    flex-direction: column;
+  }
+
+  .destaque-image img {
+    height: 280px;
+  }
+}

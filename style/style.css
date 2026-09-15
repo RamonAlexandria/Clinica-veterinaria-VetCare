@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+
+/*------------------------- daqui pra baixo é o Header -----------------------------*/
+
+
+/* Header travado em 1440px de largura e 80px de altura conforme o Figma */
+.header {
+  background-color: #111827;
+  width: 100%;
+  max-width: 1440px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0 80px; /* Padding de 80px exato para alinhar com o conteúdo do banner */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilo do Logo VetCare */
+.logo {
+  color: #10b981;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Navegação e lista */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 32px; /* Espaçamento de 32px entre os itens no Figma */
+  align-items: center;
+}
+
+/* Estilo dos links */
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* Hover e estado ativo com sublinhado */
+.nav a:hover,
+.nav a.active {
+  color: #10b981;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* RESPONSIVIDADE (Celulares e telas menores que 900px) */
+@media (max-width: 900px) {
+  .header {
+    height: auto;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+}
+
+/* ------------------------ Daqui pra baixo é o FOOTER ----------------------------- */
+
+/* Configura o body para ocupar a altura total e empurrar o último item (footer)  e também a imagem de fundo*/
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* --- adiciona o fundo --- */
+  background-color: #78a6c4; /* Cor azul de fundo (caso a imagem demore a carregar) */
+  background-image: url('../imagens/background.png');
+  background-repeat: repeat; /* Faz as patinhas se repetirem por toda a tela */
+}
+
+.footer {
+  margin-top: auto; /* Faz o último elemento filho do body (o footer) ir lá para baixo */
+  background-color: #111827;
+  color: #ffffff;
+  width: 100%;
+  padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footer-copy {
+  color: #ffffff; /* Cinza claro para o copyright */
+}
+
+.footer-contact {
+  font-style: normal; /* Remove o itálico padrão da tag address */
+  color: #ffffff;
+}
+
+.footer-contact a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact a:hover {
+  color: #10b981;
+  text-decoration: underline;
+}
+
+/* AJUSTE RESPONSIVO DO FOOTER */
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 20px;
+  }
+}
