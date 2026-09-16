@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Container Principal */
+.vets-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 67px 80px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Intro da Seção */
+.vets-intro {
+  text-align: center;
+  margin-bottom: 53px;
+}
+
+.vets-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 39px;
+  margin-bottom: 4px;
+}
+
+.vets-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+}
+
+/* Grid de Cards */
+.vets-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
+
+/* Card Semântico */
+.vet-card {
+  width: 360px;
+  height: 380px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.075);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efeito Hover */
+.vet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #10b981;
+}
+
+/* Figura/Imagem */
+.vet-figure {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.vet-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Textos do Card */
+.vet-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.vet-specialty {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0e9f6e;
+  margin-bottom: 2px;
+}
+
+.vet-crmv {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+/* Botão Perfil */
+.btn-profile {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 48px;
+  padding: 12px 24px;
+  background-color: #0e9f6e;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-profile:hover {
+  background-color: #057a55;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .vets-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .vets-container {
+    padding: 40px 20px;
+  }
+
+  .vets-grid {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
