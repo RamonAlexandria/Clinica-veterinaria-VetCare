@@ -163,7 +163,7 @@
 }
 
 /* ===================================
-   SEÇÕES DE DESTAQUE (SEM DIVS)
+   SEÇÕES DE DESTAQUE
    =================================== */
 
 .destaque-section {
@@ -194,6 +194,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.100) 5px 5px 5px;
 }
 
 .destaque-content {
@@ -225,6 +227,11 @@
   line-height: 1.5;
   color: #ffffff;
   margin-bottom: 12px;
+}
+
+.destaque-content.card2 {
+  align-items: center;
+  text-align: center;
 }
 
 /* Responsividade para os destaques */
