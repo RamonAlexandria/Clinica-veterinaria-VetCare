@@ -6,6 +6,7 @@
     <title>Clínica veterinária - VetCare</title>
     <link rel="shortcut icon" href="../favicon/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/contatoAgendamento.css">
 </head>
 <body>
     <header class="header">
@@ -21,6 +22,91 @@
         </nav>
     </header>
     
+    <main class="main-container">
+        <h1 class="page-title">Agende sua Consulta / Contato</h1>
+
+        <section class="content-wrapper">
+            <!-- Card Esquerdo: Formulário de Agendamento -->
+            <form class="card card-form" action="#" method="POST">
+                <h2 class="card-title">Marque uma Consulta</h2>
+
+                <label class="form-group">
+                    <span class="label-text">Nome completo</span>
+                    <input type="text" name="nome" placeholder="Digite seu nome" required>
+                </label>
+
+                <label class="form-group">
+                    <span class="label-text">Nome do Pet</span>
+                    <input type="text" name="pet" placeholder="Digite o nome do pet" required>
+                </label>
+
+                <label class="form-group">
+                    <span class="label-text">Serviço desejado</span>
+                    <select name="servico" required>
+                        <option value="" disabled selected>Selecione um serviço</option>
+                        <option value="consulta">Consulta de Rotina</option>
+                        <option value="vacina">Vacinação</option>
+                        <option value="exames">Exames Laboratoriais</option>
+                        <option value="cirurgia">Centro Cirúrgico</option>
+                    </select>
+                </label>
+
+                <fieldset class="form-row">
+                    <label class="form-group">
+                        <span class="label-text">Data</span>
+                        <input type="date" name="data" required>
+                    </label>
+
+                    <label class="form-group">
+                        <span class="label-text">Horário</span>
+                        <input type="time" name="horario" required>
+                    </label>
+                </fieldset>
+
+                <button type="submit" class="btn-submit">Confirmar Agendamento</button>
+            </form>
+
+            <!-- Card Direito: Canais de Atendimento -->
+            <article class="card card-info">
+                <h2 class="card-title">Canais de Atendimento</h2>
+
+                <section class="info-group">
+                    <h3>Telefone / WhatsApp:</h3>
+                    <p><a href="tel:21999999999">(21) 99999-9999</a></p>
+                </section>
+
+                <section class="info-group">
+                    <h3>Emergência 24h:</h3>
+                    <p><a href="tel:21988888888">(21) 98888-8888</a></p>
+                </section>
+
+                <section class="info-group">
+                    <h3>E-mail:</h3>
+                    <p><a href="mailto:contato@vetcare.com.br">contato@vetcare.com.br</a></p>
+                </section>
+
+                <section class="info-group">
+                    <h3>Redes Sociais:</h3>
+                    <p>@vetcare.oficial</p>
+                </section>
+
+                <section class="info-group">
+                    <h3>Consultas de Rotina:</h3>
+                    <p>Segunda a Sábado: 08h às 20h</p>
+                </section>
+
+                <section class="info-group">
+                    <h3>Pronto-Socorro:</h3>
+                    <p>Atendimento 24 Horas</p>
+                </section>
+
+                <address class="info-group">
+                    <h3>Endereço:</h3>
+                    <p>Rua das Flores, 123 — Rio de Janeiro, RJ</p>
+                </address>
+            </article>
+        </section>
+    </main>
 
     <footer class="footer">
         <p class="footer-copy">© 2026 VetCare — Todos os direitos reservados.</p>

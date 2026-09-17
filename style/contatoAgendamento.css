@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* --- Container Principal Alinhado com o Header --- */
+.main-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 80px 60px 80px; /* Mantém os 80px de margem lateral do header */
+  flex: 1;
+}
+
+/* --- Título Principal --- */
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 32px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); /* Sombra conforme indicado no Figma */
+}
+
+/* --- Grid / Disposição dos 2 Cards --- */
+.content-wrapper {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* --- Estilo Base dos Cards (Esquerdo e Direito) --- */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-form {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-info {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Títulos Internos dos Cards --- */
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+/* --- Campos do Formulário --- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  background-color: #f1f5f9; /* Tom exato dos retângulos cinzas do Figma */
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* Linha com Data e Horário lado a lado */
+.form-row {
+  border: none;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* --- Botão Principal do Formulário --- */
+.btn-submit {
+  height: 48px;
+  background-color: #047857; /* Verde do botão conforme o Figma */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: #065f46; /* Tom mais escuro no hover */
+}
+
+.btn-submit:active {
+  transform: scale(0.99);
+}
+
+/* --- Seção de Canais de Atendimento (Card Direito) --- */
+.info-group {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-group h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.info-group p,
+.info-group a {
+  font-size: 14px;
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.info-group a:hover {
+  color: #10b981;
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVIDADE (Telas menores / Mobile) --- */
+@media (max-width: 900px) {
+  .main-container {
+    padding: 24px 20px 40px 20px; /* Reduz espaçamento lateral mantendo o padrão do header */
+  }
+
+  .page-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-form,
+  .card-info {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
