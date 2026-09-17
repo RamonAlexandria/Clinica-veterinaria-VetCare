@@ -151,9 +151,10 @@
   text-decoration: none;
 }
 
+.info-group p:hover,
 .info-group a:hover {
   color: #10b981;
-  text-decoration: underline;
+  cursor: pointer; /* Opcional: mostra a mãozinha de clique */
 }
 
 /* --- RESPONSIVIDADE (Telas menores / Mobile) --- */
