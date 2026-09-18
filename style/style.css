@@ -5,21 +5,20 @@
   font-family: sans-serif;
 }
 
+/*------------------------- HEADER -----------------------------*/
 
-/*------------------------- daqui pra baixo é o Header -----------------------------*/
-
-
-/* Header travado em 1440px de largura e 80px de altura conforme o Figma */
+/* Header principal */
 .header {
   background-color: #111827;
   width: 100%;
   max-width: 1440px;
   height: 80px;
   margin: 0 auto;
-  padding: 0 80px; /* Padding de 80px exato para alinhar com o conteúdo do banner */
+  padding: 0 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 /* Estilo do Logo VetCare */
@@ -30,7 +29,7 @@
   text-decoration: none;
 }
 
-/* Navegação e lista */
+/* Navegação Desktop */
 .nav {
   display: flex;
   align-items: center;
@@ -39,11 +38,10 @@
 .nav ul {
   display: flex;
   list-style: none;
-  gap: 32px; /* Espaçamento de 32px entre os itens no Figma */
+  gap: 32px;
   align-items: center;
 }
 
-/* Estilo dos links */
 .nav a {
   color: #ffffff;
   text-decoration: none;
@@ -53,7 +51,7 @@
   transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-/* Hover e estado ativo com sublinhado */
+/* Hover e estado ativo */
 .nav a:hover,
 .nav a.active {
   color: #10b981;
@@ -61,23 +59,79 @@
   text-underline-offset: 6px;
 }
 
-/* RESPONSIVIDADE (Celulares e telas menores que 900px) */
+/* Oculta os elementos do hambúrguer no Desktop */
+.menu-toggle,
+.hamburger {
+  display: none;
+}
+
+/*------------------- RESPONSIVIDADE (MOBILE) -------------------*/
 @media (max-width: 900px) {
   .header {
-    height: auto;
+    height: 70px;
+    padding: 0 24px;
+  }
+
+  /* Exibe o botão do menu hambúrguer */
+  .hamburger {
+    display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 20px;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Menu Escondido por padrão no Mobile */
+  .nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #111827;
+    padding: 24px 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
   }
 
   .nav ul {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
   }
 
   .nav a {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  /* Exibe o menu ao clicar no ícone */
+  .menu-toggle:checked ~ .nav {
+    display: flex;
+  }
+
+  /* Animação do Ícone para "X" quando o menu estiver aberto */
+  .menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
   }
 }
 
@@ -91,7 +145,9 @@ body {
   /* --- adiciona o fundo --- */
   background-color: #78a6c4; /* Cor azul de fundo (caso a imagem demore a carregar) */
   background-image: url('../imagens/background.png');
-  background-repeat: repeat; /* Faz as patinhas se repetirem por toda a tela */
+  background-repeat: no-repeat; /* Impede a repetição */
+  background-size: cover;       /* Faz a imagem esticar para cobrir toda a tela */
+  background-position: center;  /* Centraliza a imagem */
 }
 
 .footer {

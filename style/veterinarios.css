@@ -23,18 +23,29 @@
 }
 
 .vets-title {
+  width: fit-content;
+  margin: 0 auto 20px;
+  padding: 8px 24px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
   font-size: 32px;
   font-weight: 700;
+  line-height: 1.2;
   color: #000000;
-  line-height: 39px;
-  margin-bottom: 4px;
 }
 
 .vets-subtitle {
-  font-size: 14px;
-  font-weight: 400;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 9px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
   color: #000000;
-  line-height: 17px;
+  text-align: center;
 }
 
 /* Grid de Cards */
@@ -126,19 +137,57 @@
 }
 
 /* Responsividade */
-@media (max-width: 1200px) {
-  .vets-grid {
-    gap: 40px;
-  }
-}
-
 @media (max-width: 900px) {
+
   .vets-container {
-    padding: 40px 20px;
+    padding: 40px 25px 60px;
+  }
+
+  .vets-intro {
+    margin-bottom: 40px;
+  }
+
+  .vets-title {
+    font-size: 28px;
+    padding: 8px 22px;
+  }
+
+  .vets-subtitle {
+    font-size: 14px;
+    padding: 9px 18px;
   }
 
   .vets-grid {
     flex-direction: column;
     gap: 32px;
   }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .vets-container {
+    padding: 35px 20px 50px;
+  }
+
+  .vets-intro {
+    margin-bottom: 30px;
+  }
+
+  .vets-title {
+    font-size: 24px;
+    padding: 7px 18px;
+  }
+
+  .vets-subtitle {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .vet-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
 }

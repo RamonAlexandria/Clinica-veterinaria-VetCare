@@ -16,11 +16,17 @@
 
 /* --- Título Principal --- */
 .page-title {
+  width: fit-content;
+  margin: 0 auto 32px;
+  padding: 8px 24px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
   font-size: 36px;
   font-weight: 700;
-  color: #111827;
-  margin-bottom: 32px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); /* Sombra conforme indicado no Figma */
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* --- Grid / Disposição dos 2 Cards --- */
@@ -182,5 +188,11 @@
   .form-row {
     flex-direction: column;
     gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+  .page-title {
+    font-size: 26px;
+    padding: 7px 18px;
   }
 }

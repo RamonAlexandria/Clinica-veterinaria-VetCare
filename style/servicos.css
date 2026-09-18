@@ -40,6 +40,23 @@
   margin-bottom: 32px;
 }
 
+.services-title, .services-subtitle {
+    font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 32px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92); /* Caixa branca translúcida */
+  /* Faz o background ajustar ao tamanho exato do texto */
+  width: fit-content;
+  display: block;
+  margin: 0 auto 32px auto; /* Centraliza a caixa e aplica o espaçamento inferior */
+  
+  /* Espaçamento interno para o texto não colar nas bordas da caixa */
+  padding: 8px 24px;
+  border-radius: 8px; /* Opcional: arredonda levemente os cantos */
+}
+
 /* Lista em Grid idêntica à Index */
 .services-list {
   list-style: none;
@@ -169,19 +186,11 @@
 .destaque-section {
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 60px;
   padding: 0 clamp(20px, 5.5vw, 80px);
-  display: flex;
   box-sizing: border-box;
-}
-
-.destaque-card {
-  width: 100%;
-  background-color: #111a28;
-  border-radius: 12px;
-  overflow: hidden;
   display: flex;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  gap: 0;
 }
 
 .destaque-image {
@@ -192,55 +201,145 @@
 .destaque-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  min-height: 400px;
   display: block;
+  object-fit: cover;
   border-radius: 16px;
-  box-shadow: rgba(0, 0, 0, 0.100) 5px 5px 5px;
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, .12);
 }
 
 .destaque-content {
   flex: 1;
-  padding: 40px;
-  color: #ffffff;
+  padding: 45px;
+  background: #fff;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, .10);
+  position: relative;
+  z-index: 1;
 }
 
 .destaque-content h2 {
-  font-size: 1.8rem;
+  margin: 0 0 10px;
+  color: #1683a5;
+  font-size: clamp(1.7rem, 2.5vw, 2.2rem);
   font-weight: 700;
-  margin-bottom: 10px;
-  color: #ffffff;
+  line-height: 1.2;
+}
+
+.destaque-content h2::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: #1683a5;
+  border-radius: 5px;
 }
 
 .destaque-subtitulo {
+  max-width: 500px;
+  margin: 0 0 20px;
+  padding: 10px 16px;
+  background: #eaf6f9;
+  border-radius: 8px;
+  color: #167894 !important;
   font-size: 1rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
-.destaque-content p {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: #ffffff;
-  margin-bottom: 12px;
+.destaque-content p:not(.destaque-subtitulo) {
+  max-width: 520px;
+  margin: 0 0 14px;
+  padding-left: 14px;
+  border-left: 3px solid #d8edf2;
+  color: #333;
+  font-size: .88rem;
+  line-height: 1.65;
+  text-align: left;
 }
 
-.destaque-content.card2 {
-  align-items: center;
-  text-align: center;
+.destaque-content p:last-of-type {
+  margin-bottom: 22px;
 }
 
-/* Responsividade para os destaques */
+.destaque-content .btn-card {
+  margin-top: 4px;
+  padding: 11px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: .25s ease;
+}
+
+.destaque-content .btn-card:hover {
+  transform: translateY(-2px);
+}
+
+
+/* Segundo destaque */
+
+.destaque-section.inverte .destaque-content {
+  border-radius: 16px;
+}
+
+
+/* RESPONSIVIDADE */
+
 @media (max-width: 1024px) {
-  .destaque-card {
+  .destaque-section {
     flex-direction: column;
   }
 
+  .destaque-section.inverte {
+    flex-direction: column-reverse;
+  }
+
   .destaque-image img {
-    height: 280px;
+    height: 320px;
+    min-height: 0;
+    border-radius: 16px;
+  }
+
+  .destaque-content {
+    padding: 35px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .destaque-section {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .destaque-image img {
+    height: 240px;
+  }
+
+  .destaque-content {
+    padding: 28px 20px;
+  }
+
+  .destaque-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .destaque-subtitulo {
+    font-size: .9rem;
+    padding: 9px 12px;
+  }
+
+  .destaque-content p:not(.destaque-subtitulo) {
+    font-size: .82rem;
+    line-height: 1.6;
+  }
+
+  .destaque-content .btn-card {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

@@ -6,25 +6,22 @@
 }
 
 /* ===================================
-   SECTION BANNER
+   SECTION BANNER (Ajustado e Responsivo)
    =================================== */
 
 .banner {
   position: relative;
-  z-index: 2; /* Garante que a sombra fique visível por cima das seções abaixo */
+  z-index: 2;
   width: 100%;
   max-width: 1440px;
-  /* Proporção 1440 x 600 */
   aspect-ratio: 12 / 5;
   min-height: 320px;
   margin: 0 auto;
-  overflow: visible; /* Permite a exibição da sombra projetada na borda inferior */
+  overflow: visible;
   display: flex;
-  align-items: flex-start; /* Alinha o conteúdo no topo em vez do centro */
-  padding-top: clamp(20px, 5.5vw, 80px); /* Garante os 80px do Figma na resolução cheia */
+  align-items: flex-start;
+  padding-top: clamp(20px, 5.5vw, 80px);
   background-color: #ffffff;
-  
-  /* Sombra exata do Figma (X:0, Y:4, Blur:4, Color: #000 25%) */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -48,9 +45,10 @@
 /* Conteúdo sobreposto */
 .banner-content {
   position: relative;
+  top: -8%;
   z-index: 2;
-  max-width: 45%;
-  margin-left: clamp(20px, 5.5vw, 80px); /* Garante os 80px (X:80) do Figma */
+  max-width: 40%;
+  margin-left: clamp(20px, 5.5vw, 80px);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -59,17 +57,17 @@
 }
 
 .banner-content h1 {
-  font-size: clamp(1.2rem, 2.5vw, 2.25rem);
+  font-size: clamp(1.1rem, 2.3vw, 2.25rem);
   font-weight: 700;
   color: #000000;
   line-height: 1.2;
 }
 
 .banner-content p {
-font-size: clamp(0.75rem, 1.1vw, 1rem);
-font-weight: 600;
-color: #4a4a4a;
-line-height: 1.4;
+  font-size: clamp(0.75rem, 1.1vw, 1rem);
+  font-weight: 600;
+  color: #4a4a4a;
+  line-height: 1.4;
 }
 
 /* Botão Verde */
@@ -85,25 +83,23 @@ line-height: 1.4;
   white-space: nowrap;
   transition: background-color 0.2s ease;
   margin-top: 0.25rem;
+  margin-left: 170px;
 }
 
 .btn-primary:hover {
   background-color: #065b38;
 }
 
-/* ===================================
-   RESPONSIVIDADE (MEDIA QUERIES)
-   =================================== */
-
-/* Notebooks e Telas Médias */
+/* Responsividade do Banner */
 @media (max-width: 1024px) {
   .banner-content {
+    top: -4%;
     max-width: 42%;
     gap: 0.6rem;
   }
 }
 
-/* Tablets */
+/* Ajuste Mobile: Caixa branca para destacar o texto */
 @media (max-width: 768px) {
   .banner {
     aspect-ratio: auto;
@@ -112,27 +108,43 @@ line-height: 1.4;
   }
 
   .banner-content {
-    max-width: 45%;
-    margin-left: 4%;
-    gap: 0.5rem;
+    top: 0;
+    max-width: 80%;
+    margin-left: 16px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.92); /* Caixa branca translúcida */
+    backdrop-filter: blur(4px);            /* Efeito desfoque moderno */
+    border-radius: 12px;                  /* Cantos arredondados */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Sombra para destacar */
+    gap: 0.8rem;
+  }
+
+  /* Zera a margem de 170px para manter o botão dentro da caixa branca */
+  .btn-primary {
+    margin-left: 0 !important;
+    align-self: flex-start;
   }
 }
 
-/* Celulares */
 @media (max-width: 550px) {
   .banner {
-    min-height: 260px;
+    min-height: 280px;
     padding-top: 16px;
   }
 
   .banner-content {
-    max-width: 48%;
-    margin-left: 3%;
-    gap: 0.35rem;
+    top: 0;
+    max-width: 85%;
+    margin-left: 12px;
+    padding: 14px 16px;
+    gap: 0.6rem;
   }
 
   .btn-primary {
-    border-radius: 4px;
+    margin-left: 0 !important;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -144,7 +156,7 @@ line-height: 1.4;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 60px clamp(20px, 5.5vw, 80px); /* Garante os 80px (X:80) das margens do Figma */
+  padding: 60px clamp(20px, 5.5vw, 80px);
   box-sizing: border-box;
 }
 
@@ -153,19 +165,27 @@ line-height: 1.4;
   font-weight: 700;
   color: #000000;
   margin-bottom: 32px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92); /* Caixa branca translúcida */
+  /* Faz o background ajustar ao tamanho exato do texto */
+  width: fit-content;
+  display: block;
+  margin: 0 auto 32px auto; /* Centraliza a caixa e aplica o espaçamento inferior */
+  
+  /* Espaçamento interno para o texto não colar nas bordas da caixa */
+  padding: 8px 24px;
+  border-radius: 8px; /* Opcional: arredonda levemente os cantos */
 }
 
-/* Lista sem marcadores organizada em Grid de 3 Colunas */
 .services-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 110px; /* Distância exata entre os cards conforme Figma (X: 80 -> 543 -> 1007) */
+  gap: 110px;
 }
 
-/* Card Padronizado (Dimensões do Figma: 353px x 389px) */
 .service-card {
   background-color: #F9FAFB;
   border: 2px solid #E5E5E5;
@@ -174,10 +194,17 @@ line-height: 1.4;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; /* Centraliza o botão dentro do card */
+  align-items: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   min-height: 389px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #08784b;
 }
 
 .service-card-title {
@@ -212,9 +239,13 @@ line-height: 1.4;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-/* Botão "Saber Mais" idêntico ao .btn-primary do Banner (200px x 48px / border-radius: 8px) */
+.service-card:hover .service-card-image img {
+  transform: scale(1.06);
+}
+
 .btn-card {
   display: inline-flex;
   justify-content: center;
@@ -235,10 +266,6 @@ line-height: 1.4;
 .btn-card:hover {
   background-color: #065b38;
 }
-
-/* ===================================
-   RESPONSIVIDADE (MEDIA QUERIES)
-   =================================== */
 
 @media (max-width: 1200px) {
   .services-list {
@@ -270,26 +297,199 @@ line-height: 1.4;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5.5vw, 80px) 60px clamp(20px, 5.5vw, 80px);
-  display: flex;
-  justify-content: space-between;
-  gap: 32px;
-  align-items: stretch;
+  padding: 60px clamp(20px, 5.5vw, 80px);
   box-sizing: border-box;
+  display: flex;
+  gap: 45px;
+  align-items: stretch;
+}
+
+.about-section {
+  max-width: 1215px;
+  margin: 0 auto;
+  padding: 60px 0;
+  display: flex;
+  gap: 45px;
+  align-items: stretch;
 }
 
 .about-card {
   flex: 1 1 695px;
   max-width: 695px;
-  background-color: #F9FAFB;
-  border: 1px solid rgba(0, 0, 0, 0.03); /* Traçado interno de 1px com 3% de opacidade */
-  border-radius: 12px;
-  padding: 32px 36px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); /* Sombra exata do Figma: X:2 Y:2 Blur:4 */
+  padding: 35px 38px;
   box-sizing: border-box;
+  background: #F9FAFB !important;
+  border-radius: 15px;
+  border-left: 5px solid #2B8CAF;
+  box-shadow: 2px 5px 15px rgba(0,0,0,.15);
+  color: #222;
+}
+
+.about-header {
+  margin-bottom: 22px;
+}
+
+.about-label {
+  color: #2B8CAF;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.about-header h2 {
+  margin: 8px 0 15px;
+  font-size: 28px;
+  line-height: 1.25;
+  color: #17212B;
+}
+
+.about-header h2 span {
+  color: #2B8CAF;
+}
+
+.about-intro,
+.about-content > p {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.about-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 13px;
+}
+
+.about-content strong {
+  color: #17212B;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  background: #fff;
+  border: 1px solid #E1ECEF;
+  border-radius: 10px;
+}
+
+.about-feature section {
+  margin: 0;
+}
+
+.feature-icon {
+  min-width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: #E4F4F8;
+  color: #2B8CAF;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.about-feature h3 {
+  margin: 0 0 2px;
+  font-size: 14px;
+  color: #17212B;
+}
+
+.about-feature p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #555;
+}
+
+.about-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background: #EAF7FA;
+  border-left: 4px solid #2B8CAF;
+  border-radius: 9px;
+}
+
+.about-highlight p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.highlight-icon {
+  font-size: 28px;
+  color: #2B8CAF;
+}
+
+.about-final {
+  margin: 0;
+}
+
+.about-final p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.about-image {
+  flex: 1 1 465px;
+  margin: 0;
+  min-height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 2px 5px 15px rgba(0,0,0,.15);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    padding: 40px 25px;
+  }
+
+  .about-card {
+    max-width: 100%;
+  }
+
+  .about-image {
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 30px 18px;
+  }
+
+  .about-card {
+    padding: 28px 24px;
+  }
+
+  .about-header h2 {
+    font-size: 24px;
+  }
+
+  .about-image {
+    height: 350px;
+  }
 }
 
 .about-card h2 {
@@ -320,7 +520,7 @@ line-height: 1.4;
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); /* Sombra exata do Figma: X:2 Y:2 Blur:4 */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .about-image img {
@@ -329,10 +529,6 @@ line-height: 1.4;
   object-fit: cover;
   display: block;
 }
-
-/* ===================================
-   RESPONSIVIDADE AJUSTADA
-   =================================== */
 
 @media (max-width: 1280px) {
   .about-section {
@@ -359,137 +555,178 @@ line-height: 1.4;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5.5vw, 80px) 60px clamp(20px, 5.5vw, 80px);
+  padding: 0 clamp(20px, 5.5vw, 80px) 60px;
   box-sizing: border-box;
 }
 
 .emergency-card {
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  background-color: #F9FAFB;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  border-radius: 12px;
+  margin: 0;
+  padding: 28px 42px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 24px 48px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  gap: 24px;
+  gap: 45px;
+  background: #F9FAFB;
+  border-radius: 16px;
+  border: 1px solid #F0D4D4;
+  border-top: 5px solid #E50000;
+  box-shadow: 2px 5px 12px rgba(0,0,0,.15);
 }
 
 .emergency-image {
-  flex: 0 0 50%;
-  max-width: 580px;
+  flex: 0 1 48%;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .emergency-image img {
   width: 100%;
-  height: auto;
-  max-height: 480px;
-  object-fit: contain;
+  max-height: 460px;
   display: block;
+  object-fit: contain;
 }
 
 .emergency-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 18px;
   text-align: center;
-  gap: 20px;
-  padding: 10px 0;
+}
+
+.emergency-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emergency-label {
+  color: #E50000;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .emergency-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #E50000;
   margin: 0;
-  text-align: center;
-  width: 100%;
+  color: #111;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.emergency-title span {
+  color: #E50000;
 }
 
 .emergency-subtitle {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #111111;
   margin: 0;
+  color: #222;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.35;
+}
+
+.emergency-subtitle strong {
+  color: #E50000;
+}
+
+.emergency-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.emergency-info li {
+  padding: 12px 8px;
+  background: #FFF3F3;
+  border-radius: 9px;
+}
+
+.emergency-info strong,
+.emergency-info span {
+  display: block;
+}
+
+.emergency-info strong {
+  margin-bottom: 4px;
+  color: #C90000;
+  font-size: .85rem;
+}
+
+.emergency-info span {
+  color: #555;
+  font-size: .72rem;
   line-height: 1.3;
-  text-align: center;
 }
 
 .emergency-desc {
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: #333333;
-  line-height: 1.5;
   margin: 0;
+  color: #333;
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.emergency-desc strong {
+  color: #111;
+}
+
+.emergency-alert {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px 18px;
+  background: #E50000;
+  color: white;
+  border-radius: 10px;
   text-align: center;
 }
 
-/* ===================================
-   RESPONSIVIDADE DA EMERGÊNCIA
-   =================================== */
+.emergency-alert strong {
+  font-size: .95rem;
+}
 
-@media (max-width: 1024px) {
+.emergency-alert span {
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
   .emergency-card {
     flex-direction: column;
-    padding: 32px 24px;
+    padding: 30px 25px;
+    gap: 25px;
   }
 
   .emergency-image {
-    flex: 1 1 100%;
-    max-width: 360px;
+    width: 70%;
+    max-width: 400px;
+  }
+
+  .emergency-info {
+    width: 100%;
   }
 }
 
+@media (max-width: 600px) {
+  .emergency-section {
+    padding-bottom: 40px;
+  }
 
+  .emergency-card {
+    padding: 25px 18px;
+  }
 
+  .emergency-image {
+    width: 90%;
+  }
 
+  .emergency-info {
+    grid-template-columns: 1fr;
+  }
 
-
-
-
-
-/* Card Padronizado (Dimensões do Figma: 353px x 389px) */
-.service-card {
-  background-color: #F9FAFB;
-  border: 2px solid #E5E5E5;
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  min-height: 389px;
-  
-  /* Transição suave para a animação */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-/* --- EFEITO HOVER NOS CARDS --- */
-.service-card:hover {
-  transform: translateY(-8px); /* Eleva o card suavemente */
-  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Aumenta a profundidade da sombra */
-  border-color: #08784b; /* Destaca a borda na cor principal da marca */
-}
-
-.service-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease; /* Transição para o zoom da imagem */
-}
-
-/* Zoom suave na foto ao passar o mouse no card */
-.service-card:hover .service-card-image img {
-  transform: scale(1.06);
+  .emergency-title {
+    font-size: 1.8rem;
+  }
 }
